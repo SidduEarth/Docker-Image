@@ -8,5 +8,43 @@ docker images
 
 docker run -d -p 9998:9999 hello-python:1.0
 
+'''
+ docker images
+REPOSITORY     TAG          IMAGE ID       CREATED          SIZE
+python-hello   1.0          a728a1316389   15 minutes ago   103MB
+hello-python   1.0          ffcd07e7bf1b   20 minutes ago   103MB
+python         alpine3.17   fc34b07ec97a   18 months ago    78.4MB
+'''
+
+docker ps
+'''
+CONTAINER ID   IMAGE              COMMAND           CREATED              STATUS              PORTS                    NAMES
+72e4b0488058   hello-python:1.0   "python app.py"   About a minute ago   Up About a minute   0.0.0.0:9998->9999/tcp   cranky_elgamal
+'''
+
+Open it in your browser
+Go to:  http://localhost:9998
+This will open the service running inside the container. You should see the output of whatever web app or script it's serving (probably something like "Hello, Python from Docker!" depending on the code).
+
+
+docker logs 72e4b0488058
+'''
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9999
+ * Running on http://172.17.0.2:9999
+Press CTRL+C to quit
+172.17.0.1 - - [16/Apr/2025 09:26:14] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [16/Apr/2025 09:26:14] "GET /favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [16/Apr/2025 09:29:38] "GET / HTTP/1.1" 200 -
+'''
+
+PS C:\DevOps\exp7\Docker-Image> docker stop 72e4b0488058
+'''
+72e4b0488058
+'''
+
 ---
 
