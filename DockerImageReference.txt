@@ -1,0 +1,12 @@
+https://kodekloud.com/blog/create-docker-images/
+
+git clone https://github.com/SidduEarth/Docker-Image.git
+
+docker build . -t hello-python:1.0
+
+docker images
+
+docker run -d -p 9998:9999 hello-python:1.0
+
+---
+
